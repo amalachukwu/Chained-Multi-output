@@ -1,16 +1,16 @@
 # **Multi-Label Email Classification System**
 This project implements a modular architecture for multi-label email classification with two architectural approaches: Chained Multi-outputs and Hierarchical Modeling.
 
-#  Project Overview*
+#  Project Overview
 This system is designed to classify emails with multiple dependent variables (Type 2, Type 3, and Type 4) while adhering to software engineering principles of modularity, consistency, and abstraction.
 
-# Key Features*
+# Key Features
 Modular Architecture: Separation between preprocessing and modeling components
 Consistent Data Handling: Standard interfaces for data across models
 Abstraction: Common interface for all model implementations
 Multi-label Support: Two distinct approaches for multi-label classification
 
-# Architectural Approaches*
+# Architectural Approaches
 1. Chained Multi-Output Approach
 In this approach, one model instance assesses multiple types in a chained manner:
 Type 2
@@ -27,7 +27,7 @@ For each Type 2+Type 3 combination, a specialized model classifies Type 4
 
 This allows for more specialized predictions based on previous classifications.
 
-# Requirements*
+# Requirements
 Python 3.8+
 NumPy
 Pandas
