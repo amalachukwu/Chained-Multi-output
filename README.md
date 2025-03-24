@@ -1,7 +1,7 @@
-# ** Multi-Label Email Classification System**
+# **Multi-Label Email Classification System**
 This project implements a modular architecture for multi-label email classification with two architectural approaches: Chained Multi-outputs and Hierarchical Modeling.
 
-# *Project Overview*
+# * Project Overview*
 This system is designed to classify emails with multiple dependent variables (Type 2, Type 3, and Type 4) while adhering to software engineering principles of modularity, consistency, and abstraction.
 
 # *Key Features*
