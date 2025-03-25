@@ -1,4 +1,4 @@
-# **Multi-Label Email Classification System**
+# Multi-Label Email Classification System
 This project implements a modular architecture for multi-label email classification with two architectural approaches: Chained Multi-outputs and Hierarchical Modeling.
 
 #  Project Overview
@@ -23,12 +23,11 @@ NumPy
 Pandas
 scikit-learn
 
-Running the Project
-
-Clone the repository
-Install dependencies: pip install -r requirements.txt
-Place your data files in the data/ directory
-Run the main script:
+**Running the Project**
+-Clone the repository
+-Install dependencies: pip install -r requirements.txt
+-Place your data files in the data/ directory
+-Run the main script:
 python main.py
 
 
@@ -40,7 +39,7 @@ Types to classify
 Chain levels for multi-label classification
 
 # Implementation Details
-Chained Multi-Output Implementation
+**Chained Multi-Output Implementation**
 The chained approach combines labels at different levels and trains models to predict these combined labels. The ChainedData class handles creating and managing combined labels, while the ChainedModel class manages the training and evaluation process.
 Evaluation
 Accuracy is calculated hierarchically, meaning that if a prediction for an earlier type is incorrect, predictions for subsequent types are also considered incorrect. This reflects the real-world dependency between different label types.

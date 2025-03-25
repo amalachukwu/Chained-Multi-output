@@ -36,6 +36,8 @@ class ChainedModel(BaseModel):
         chain_level: str
             The level of chaining to use ('type2', 'type2_type3', or 'type2_type3_type4')
         """
+
+        # Ensures initialization logic works for child class.  
         super(ChainedModel, self).__init__()
         self.model_class = model_class
         self.model_name = f"{model_name}_{chain_level}"
@@ -46,7 +48,7 @@ class ChainedModel(BaseModel):
         self.predictions = None
         self.component_predictions = None
         
-        # Initialize the underlying model
+        # Initialize the underlying model.
         self.model = RandomForestClassifier()
         
     def train(self, data) -> None:
@@ -54,6 +56,8 @@ class ChainedModel(BaseModel):
         Train the chained model using the underlying model
         """
         X = data.X_train.copy()
+# Ensures each label includes the previous label as an additional feature.
+
 
         for i in range(3):
             y_prev = data.y_train[:, i]
@@ -95,11 +99,11 @@ class ChainedModel(BaseModel):
         y_pred = self.predict(data.X_test, data.y_test[:, 0])
 
         
-        # Check input shapes
+        # Check input shapes.
         if y_true.shape != y_pred.shape or y_true.shape[1] != 4:
             raise ValueError(f"Expected arrays of shape (n, 4), got {y_true.shape} and {y_pred.shape}")
         
-        # Calculate accuracy for each sample
+        # Calculate accuracy for each sample.
         n_samples = y_true.shape[0]
         accuracies = np.zeros(n_samples)
         
@@ -107,17 +111,17 @@ class ChainedModel(BaseModel):
             correct_count = 0
             all_correct = True
             
-            # Check each prediction sequentially
+            # Check each prediction sequentially.
             for j in range(4):
                 if all_correct and y_true[i, j] == y_pred[i, j]:
                     correct_count += 1
                 else:
                     all_correct = False  # Once a prediction is wrong, subsequent ones don't matter
             
-            # Calculate accuracy as percentage of correct predictions
+            # Calculate accuracy as percentage of correct predictions.
             accuracies[i] = (correct_count / 3) * 100
         
-        # Return mean accuracy across all samples
+        # Return mean accuracy across all samples.
         self.accuracy = np.mean(accuracies)
         print(self.accuracy)
         return self.accuracy
