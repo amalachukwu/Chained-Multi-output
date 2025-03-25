@@ -46,6 +46,6 @@ Evaluation
 Accuracy is calculated hierarchically, meaning that if a prediction for an earlier type is incorrect, predictions for subsequent types are also considered incorrect. This reflects the real-world dependency between different label types.
 
 # Authors
-Dhruva Deswal 
+Dhruva Deswal and
 Amalachukwu Adaeze Atusiuba
 
